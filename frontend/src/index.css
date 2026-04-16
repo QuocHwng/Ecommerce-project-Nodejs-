@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@media print {
+  /* 1. Ẩn TOÀN BỘ mọi thứ trong body trước */
+  body * {
+    visibility: hidden; 
+  }
+
+  /* 2. Chỉ hiện lại đúng cái khu vực có ID là "printable-area" */
+  #printable-area, #printable-area * {
+    visibility: visible;
+  }
+
+  /* 3. Định vị tờ phiếu về góc trên cùng bên trái, che lấp mọi thứ khác */
+  #printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px; /* Cách lề giấy một chút cho đẹp */
+    background-color: white;
+    z-index: 9999; /* Đè lên tất cả các thành phần khác */
+  }
+
+  /* 4. Xử lý thẩm mỹ: Bỏ bóng đổ, ép chữ đen */
+  .shadow-lg, .shadow, .shadow-sm {
+    box-shadow: none !important;
+    border: 1px solid #000 !important; /* Viền đen cho sắc nét */
+  }
+  
+  * {
+    color: #000 !important; /* Ép chữ đen tuyền */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ẩn các nút bấm nếu lỡ nó nằm trong vùng in */
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* 5. Xóa Header/Footer rác của trình duyệt (Dòng localhost, ngày giờ...) */
+@page {
+  size: auto;
+  margin: 0mm; /* Reset lề máy in */
+}

@@ -1,0 +1,17 @@
+admin	
+hung123456
+
+khởi dong web: 
+Tóm tắt quy trình mở máy làm việc:
+Mở VS Code vào thư mục gốc (Ecommerce-Reactjs).
+
+Mở Terminal 1: Gõ cd backend -> npx nodemon server.js.
+
+Mở Terminal 2 (bấm dấu +): Gõ cd frontend rồi npm run dev
+
+Mở trình duyệt: Vào địa chỉ http://localhost:5173/ để xem thành quả
+
+
+Vnpay
+TK: phamquochung23102003@gmail.com
+MK: Hung2310
