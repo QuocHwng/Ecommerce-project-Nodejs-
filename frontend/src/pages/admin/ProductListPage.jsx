@@ -14,7 +14,7 @@ const ProductListPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/products');
+      const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/products');
       setProducts(data);
       setLoading(false);
     } catch (err) {
@@ -36,7 +36,7 @@ const ProductListPage = () => {
     if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')) {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        await axios.delete(`http://localhost:5000/api/products/${id}`, config);
+        await axios.delete(`https://ecommerce-project-nodejs.onrender.com/api/products/${id}`, config);
         fetchProducts(); 
       } catch (err) {
         alert(err.response?.data?.message || err.message);

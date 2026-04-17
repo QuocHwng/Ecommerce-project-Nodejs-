@@ -9,7 +9,7 @@ const AdminInventoryDetailPage = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+      const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/products/${id}`);
       setProduct(data);
     };
     fetchProduct();

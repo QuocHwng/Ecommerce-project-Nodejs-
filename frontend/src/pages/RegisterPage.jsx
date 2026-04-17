@@ -24,7 +24,7 @@ const RegisterPage = () => {
 
     try {
       // Gửi dữ liệu đăng ký
-      await axios.post('http://localhost:5000/api/users', {
+      await axios.post('https://ecommerce-project-nodejs.onrender.com/api/users', {
         name,
         email,
         password,

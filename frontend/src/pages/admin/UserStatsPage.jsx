@@ -10,7 +10,7 @@ const UserStatsPage = () => {
       try {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/users/stats', config);
+        const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/users/stats', config);
         setStats(data);
       } catch (error) {
         console.error(error);

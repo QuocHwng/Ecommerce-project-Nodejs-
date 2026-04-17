@@ -25,7 +25,7 @@ const ProductEditPage = () => {
     // 1. Hàm lấy thông tin sản phẩm cần sửa
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/products/${id}`);
         setName(data.name);
         setPrice(data.price);
         setImage(data.image);
@@ -41,7 +41,7 @@ const ProductEditPage = () => {
     // 2. 👇 MỚI: Hàm lấy danh sách danh mục để đổ vào Dropdown
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/categories");
+        const { data } = await axios.get("https://ecommerce-project-nodejs.onrender.com/api/categories");
         setCategories(data);
       } catch (error) {
         console.error("Lỗi tải danh mục:", error);
@@ -60,7 +60,7 @@ const ProductEditPage = () => {
     setUploading(true);
     try {
       const config = { headers: { "Content-Type": "multipart/form-data" } };
-      const { data } = await axios.post("http://localhost:5000/api/upload", formData, config);
+      const { data } = await axios.post("https://ecommerce-project-nodejs.onrender.com/api/upload", formData, config);
       setImage(data);
       setUploading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ const ProductEditPage = () => {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
       await axios.put(
-        `http://localhost:5000/api/products/${id}`,
+        `https://ecommerce-project-nodejs.onrender.com/api/products/${id}`,
         { name, price, image, brand, category, countInStock, description },
         config
       );

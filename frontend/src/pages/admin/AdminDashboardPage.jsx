@@ -22,7 +22,7 @@ const AdminDashboardPage = () => {
             const userInfo = JSON.parse(localStorage.getItem("userInfo"));
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
             
-            const { data } = await axios.get('http://localhost:5000/api/dashboard/summary', config);
+            const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/dashboard/summary', config);
             setSummary(data);
             setLoading(false);
         } catch (error) {

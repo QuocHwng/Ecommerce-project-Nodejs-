@@ -36,7 +36,7 @@
 //     // --- GỌI API LẤY DANH SÁCH GÓI CƯỚC VẬN CHUYỂN ---
 //     const fetchShippingMethods = async () => {
 //       try {
-//         const { data } = await axios.get('http://localhost:5000/api/shipping');
+//         const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/shipping');
 //         setShippingMethods(data);
         
 //         // Mặc định chọn gói đầu tiên (thường là Tiêu chuẩn hoặc Rẻ nhất)
@@ -87,7 +87,7 @@
 
 //       // Gửi dữ liệu lên Server (Khớp với Order Model mới)
 //       const { data } = await axios.post(
-//         'http://localhost:5000/api/orders',
+//         'https://ecommerce-project-nodejs.onrender.com/api/orders',
 //         {
 //           orderItems: cart.cartItems,
 //           shippingAddress: cart.shippingAddress,
@@ -305,7 +305,7 @@ const PlaceOrderPage = () => {
 
     const fetchShippingMethods = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/shipping');
+        const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/shipping');
         setShippingMethods(data);
         if (data.length > 0) {
             const defaultMethod = data.find(m => m.isDefault) || data[0];
@@ -337,7 +337,7 @@ const PlaceOrderPage = () => {
 
       // BƯỚC 1: TẠO ĐƠN HÀNG TRÊN SERVER
       const { data } = await axios.post(
-        'http://localhost:5000/api/orders',
+        'https://ecommerce-project-nodejs.onrender.com/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
@@ -355,7 +355,7 @@ const PlaceOrderPage = () => {
       if (cart.paymentMethod === 'VNPAY') {
         // Nếu chọn VNPAY -> Gọi tiếp API lấy Link VNPAY
         const { data: paymentData } = await axios.post(
-          'http://localhost:5000/api/orders/create_payment_url',
+          'https://ecommerce-project-nodejs.onrender.com/api/orders/create_payment_url',
           {
             amount: totalPrice,
             orderId: data._id, // ID đơn hàng vừa tạo ở bước 1

@@ -17,7 +17,7 @@ const UserEditPage = () => {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
         // Lấy thông tin User cần sửa
-        const { data } = await axios.get(`http://localhost:5000/api/users/${id}`, config);
+        const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/users/${id}`, config);
         
         setName(data.name);
         setEmail(data.email);
@@ -38,7 +38,7 @@ const UserEditPage = () => {
       
       // Gửi thông tin cập nhật lên Server
       await axios.put(
-        `http://localhost:5000/api/users/${id}`,
+        `https://ecommerce-project-nodejs.onrender.com/api/users/${id}`,
         { name, email, isAdmin }, // Gửi kèm trạng thái isAdmin mới
         config
       );

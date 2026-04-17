@@ -10,7 +10,7 @@ const OrderStatusPage = () => {
       try {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/orders/status-stats', config);
+        const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/orders/status-stats', config);
         setData(data);
       } catch (error) {
         console.error(error);

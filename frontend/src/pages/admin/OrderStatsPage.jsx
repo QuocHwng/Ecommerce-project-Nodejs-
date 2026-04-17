@@ -11,7 +11,7 @@ const OrderStatsPage = () => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         // Gọi API thống kê mới tạo
-        const { data } = await axios.get('http://localhost:5000/api/orders/stats', config);
+        const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/orders/stats', config);
         setStats(data);
       } catch (error) {
         console.error(error);

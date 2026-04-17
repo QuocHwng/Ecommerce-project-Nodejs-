@@ -9,7 +9,7 @@
 //   const submitHandler = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const { data } = await axios.post('http://localhost:5000/api/users/login', {
+//       const { data } = await axios.post('https://ecommerce-project-nodejs.onrender.com/api/users/login', {
 //         email,
 //         password,
 //       });
@@ -103,7 +103,7 @@ const LoginPage = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users/login', {
+      const { data } = await axios.post('https://ecommerce-project-nodejs.onrender.com/api/users/login', {
         email,
         password,
       });

@@ -13,7 +13,7 @@ const ImportDetailPage = () => {
       try {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get(`http://localhost:5000/api/imports/${id}`, config);
+        const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/imports/${id}`, config);
         setNote(data);
       } catch (error) {
         console.error(error);

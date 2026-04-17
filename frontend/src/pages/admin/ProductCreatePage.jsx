@@ -21,7 +21,7 @@ const ProductCreatePage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
         try {
-            const { data } = await axios.get("http://localhost:5000/api/categories");
+            const { data } = await axios.get("https://ecommerce-project-nodejs.onrender.com/api/categories");
             setCategories(data);
             if (data && data.length > 0) {
                 setCategory(data[0].name); 
@@ -48,11 +48,11 @@ const ProductCreatePage = () => {
       };
 
       // Gọi vào API upload bạn ĐÃ CÓ sẵn ở Backend
-      const { data } = await axios.post('http://localhost:5000/api/upload', formData, config);
+      const { data } = await axios.post('https://ecommerce-project-nodejs.onrender.com/api/upload', formData, config);
 
       // Backend trả về đường dẫn (vd: /uploads/image-123.jpg)
       // Ta nối thêm domain vào để hiển thị được
-      setImage(`http://localhost:5000${data}`);
+      setImage(`https://ecommerce-project-nodejs.onrender.com${data}`);
       setUploading(false);
 
     } catch (error) {
@@ -70,7 +70,7 @@ const ProductCreatePage = () => {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
       await axios.post(
-        'http://localhost:5000/api/products',
+        'https://ecommerce-project-nodejs.onrender.com/api/products',
         {
           name,
           price,

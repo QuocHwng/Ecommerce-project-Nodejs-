@@ -9,7 +9,7 @@ const AdminShippingPage = () => {
     const [time, setTime] = useState('');
 
     const fetchMethods = async () => {
-        const { data } = await axios.get('http://localhost:5000/api/shipping');
+        const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/shipping');
         setMethods(data);
     };
 
@@ -19,7 +19,7 @@ const AdminShippingPage = () => {
         e.preventDefault();
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        await axios.post('http://localhost:5000/api/shipping', { name, price, estimatedTime: time }, config);
+        await axios.post('https://ecommerce-project-nodejs.onrender.com/api/shipping', { name, price, estimatedTime: time }, config);
         fetchMethods();
         setName(''); setPrice(0); setTime('');
     };
@@ -28,7 +28,7 @@ const AdminShippingPage = () => {
         if(window.confirm('Xóa phương thức này?')) {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            await axios.delete(`http://localhost:5000/api/shipping/${id}`, config);
+            await axios.delete(`https://ecommerce-project-nodejs.onrender.com/api/shipping/${id}`, config);
             fetchMethods();
         }
     }

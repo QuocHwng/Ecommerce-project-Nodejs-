@@ -26,7 +26,7 @@
 //   const fetchOrder = async () => {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`, config);
+//         const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/orders/${id}`, config);
 //         setOrder(data);
 //         setLoading(false);
 //       } catch (err) {
@@ -42,7 +42,7 @@
 //     }
     
 //     const addPayPalScript = async () => {
-//       const { data: clientId } = await axios.get('http://localhost:5000/api/config/paypal');
+//       const { data: clientId } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/config/paypal');
 //       paypalDispatch({
 //         type: 'resetOptions',
 //         value: { 'client-id': clientId, currency: 'USD' },
@@ -70,7 +70,7 @@
 //     return actions.order.capture().then(async function (details) {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         await axios.put(`http://localhost:5000/api/orders/${order._id}/pay`, details, config);
+//         await axios.put(`https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/pay`, details, config);
 //         alert("Thanh toán thành công!");
 //         fetchOrder();
 //       } catch (err) {
@@ -83,7 +83,7 @@
 //   const markAsPaidHandler = async () => {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         await axios.put(`http://localhost:5000/api/orders/${order._id}/pay`, {}, config);
+//         await axios.put(`https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/pay`, {}, config);
 //         alert("Đã cập nhật trạng thái: ĐÃ THANH TOÁN");
 //         fetchOrder();
 //       } catch (err) {
@@ -97,7 +97,7 @@
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 //       await axios.put(
-//         `http://localhost:5000/api/orders/${order._id}/deliver`,
+//         `https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/deliver`,
 //         { trackingNumber, carrier }, 
 //         config
 //       );
@@ -331,7 +331,7 @@ const OrderPage = () => {
   const fetchOrder = async () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`, config);
+        const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/orders/${id}`, config);
         setOrder(data);
         setLoading(false);
       } catch (err) {
@@ -347,7 +347,7 @@ const OrderPage = () => {
     }
     
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('http://localhost:5000/api/config/paypal');
+      const { data: clientId } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/config/paypal');
       paypalDispatch({
         type: 'resetOptions',
         value: { 'client-id': clientId, currency: 'USD' },
@@ -373,7 +373,7 @@ const OrderPage = () => {
     return actions.order.capture().then(async function (details) {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        await axios.put(`http://localhost:5000/api/orders/${order._id}/pay`, details, config);
+        await axios.put(`https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/pay`, details, config);
         alert("Thanh toán thành công!");
         fetchOrder();
       } catch (err) {
@@ -385,7 +385,7 @@ const OrderPage = () => {
   const markAsPaidHandler = async () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        await axios.put(`http://localhost:5000/api/orders/${order._id}/pay`, {}, config);
+        await axios.put(`https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/pay`, {}, config);
         alert("Đã cập nhật trạng thái: ĐÃ THANH TOÁN");
         fetchOrder();
       } catch (err) {
@@ -400,7 +400,7 @@ const OrderPage = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       await axios.put(
-        `http://localhost:5000/api/orders/${order._id}/deliver`,
+        `https://ecommerce-project-nodejs.onrender.com/api/orders/${order._id}/deliver`,
         { trackingNumber, carrier, shipperName, shipperPhone }, // Gửi thêm data shipper
         config
       );

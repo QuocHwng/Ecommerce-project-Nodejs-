@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/categories');
+            const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/categories');
             setCategories(data);
         } catch (error) {
             console.error("Lỗi tải danh mục");
@@ -27,7 +27,7 @@ const HomePage = () => {
   // 2. Tải sản phẩm (Lọc theo URL)
   useEffect(() => {
     const fetchProducts = async () => {
-      let url = `http://localhost:5000/api/products?keyword=${keywordParam}&category=${categoryParam}`;
+      let url = `https://ecommerce-project-nodejs.onrender.com/api/products?keyword=${keywordParam}&category=${categoryParam}`;
       const { data } = await axios.get(url);
       setProducts(data);
     };

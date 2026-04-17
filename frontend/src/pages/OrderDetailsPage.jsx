@@ -28,7 +28,7 @@ const OrderDetailsPage = () => {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
-      const { data } = await axios.get(`http://localhost:5000/api/orders/${id}`, config);
+      const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/orders/${id}`, config);
       setOrder(data);
       setLoading(false);
     } catch (error) {
@@ -55,7 +55,7 @@ const OrderDetailsPage = () => {
             
             // Gửi request PUT kèm lý do hủy
             await axios.put(
-                `http://localhost:5000/api/orders/${id}/cancel`, 
+                `https://ecommerce-project-nodejs.onrender.com/api/orders/${id}/cancel`, 
                 { reason: cancelReason }, 
                 config
             );

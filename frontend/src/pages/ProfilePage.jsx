@@ -32,7 +32,7 @@ const ProfilePage = () => {
   const fetchMyOrders = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/orders/myorders', config);
+      const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/orders/myorders', config);
       setOrders(data);
     } catch (error) {
       console.error(error);
@@ -47,7 +47,7 @@ const ProfilePage = () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         const { data } = await axios.put(
-          'http://localhost:5000/api/users/profile',
+          'https://ecommerce-project-nodejs.onrender.com/api/users/profile',
           { name, email, password },
           config
         );

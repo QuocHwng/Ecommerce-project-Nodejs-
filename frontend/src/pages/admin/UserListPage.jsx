@@ -13,7 +13,7 @@ const UserListPage = () => {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
-      const { data } = await axios.get('http://localhost:5000/api/users', config);
+      const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/users', config);
       setUsers(data);
     } catch (error) {
       console.error("Lỗi tải danh sách:", error);
@@ -37,7 +37,7 @@ const UserListPage = () => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-        await axios.delete(`http://localhost:5000/api/users/${id}`, config);
+        await axios.delete(`https://ecommerce-project-nodejs.onrender.com/api/users/${id}`, config);
         
         alert('Đã xóa thành công!');
         fetchUsers(); // Tải lại danh sách sau khi xóa

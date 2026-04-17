@@ -14,7 +14,7 @@ const OrderListPage = () => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         if (userInfo && userInfo.isAdmin) {
           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-          const { data } = await axios.get('http://localhost:5000/api/orders', config);
+          const { data } = await axios.get('https://ecommerce-project-nodejs.onrender.com/api/orders', config);
           setOrders(data);
         } else {
           navigate('/login');

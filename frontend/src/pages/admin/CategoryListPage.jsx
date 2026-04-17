@@ -11,7 +11,7 @@ const CategoryListPage = () => {
   // 1. Hàm lấy danh sách danh mục
   const fetchCategories = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/categories");
+      const { data } = await axios.get("https://ecommerce-project-nodejs.onrender.com/api/categories");
       setCategories(data);
     } catch (error) {
       console.error("Lỗi tải danh mục:", error);
@@ -37,7 +37,7 @@ const CategoryListPage = () => {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
-      await axios.post("http://localhost:5000/api/categories", { name }, config);
+      await axios.post("https://ecommerce-project-nodejs.onrender.com/api/categories", { name }, config);
       
       setName(""); // Xóa ô nhập sau khi thêm
       fetchCategories(); // Load lại danh sách ngay lập tức
@@ -54,7 +54,7 @@ const CategoryListPage = () => {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-        await axios.delete(`http://localhost:5000/api/categories/${id}`, config);
+        await axios.delete(`https://ecommerce-project-nodejs.onrender.com/api/categories/${id}`, config);
         fetchCategories(); // Load lại sau khi xóa
       } catch (error) {
         alert("Không thể xóa: " + error.message);

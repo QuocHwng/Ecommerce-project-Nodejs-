@@ -21,7 +21,7 @@ const ProductPage = () => {
 
   const fetchProduct = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+      const { data } = await axios.get(`https://ecommerce-project-nodejs.onrender.com/api/products/${id}`);
       setProduct(data);
       setLoading(false);
     } catch (err) {
@@ -103,7 +103,7 @@ const ProductPage = () => {
     }
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.post(`http://localhost:5000/api/products/${id}/reviews`, { rating, comment }, config);
+      await axios.post(`https://ecommerce-project-nodejs.onrender.com/api/products/${id}/reviews`, { rating, comment }, config);
       alert('Đánh giá thành công!');
       setRating(0);
       setComment('');

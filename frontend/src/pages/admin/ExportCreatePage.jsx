@@ -13,7 +13,7 @@ const ExportCreatePage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-        const { data } = await axios.get("http://localhost:5000/api/products");
+        const { data } = await axios.get("https://ecommerce-project-nodejs.onrender.com/api/products");
         setProducts(data);
     };
     fetchProducts();
@@ -53,7 +53,7 @@ const ExportCreatePage = () => {
           const userInfo = JSON.parse(localStorage.getItem("userInfo"));
           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
           
-          await axios.post("http://localhost:5000/api/exports", {
+          await axios.post("https://ecommerce-project-nodejs.onrender.com/api/exports", {
               exportItems,
               reason
           }, config);

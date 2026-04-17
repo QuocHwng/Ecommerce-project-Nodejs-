@@ -145,7 +145,7 @@ const OrderSuccessPage = () => {
                     // Mã 00 nghĩa là giao dịch thành công tại ngân hàng
                     if (vnp_ResponseCode === '00') {
                         // Gọi API để cập nhật trạng thái đơn hàng thành "Đã thanh toán"
-                        await axios.put(`http://localhost:5000/api/orders/${orderId}/pay`, {
+                        await axios.put(`https://ecommerce-project-nodejs.onrender.com/api/orders/${orderId}/pay`, {
                             id: searchParams.get('vnp_TransactionNo'),
                             status: 'COMPLETED_VNPAY',
                             update_time: searchParams.get('vnp_PayDate'),
